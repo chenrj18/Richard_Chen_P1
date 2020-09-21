@@ -1,0 +1,78 @@
+//test printState and move
+printState
+setState 0000b0000
+printState
+move up
+printState
+move down
+printState
+move left
+printState
+move right
+printState
+
+//test randomizeState and randomize_exp_State
+randomizeState 1
+printState
+randomizeState 2
+printState
+randomize_exp_State 1
+printState
+randomize_exp_State 2
+printState
+
+//test maxNodes activation
+maxNodes 2
+randomizeState 1
+printState
+solve_A_star h1
+printState
+randomizeState 1
+printState
+solve_beam 1
+printState
+
+//test maxNodes not activating
+maxNodes 3
+randomizeState 1
+printState
+solve_A_star h1
+printState
+randomizeState 1
+printState
+solve_beam 1
+printState
+
+
+
+//test total_move, n_solved, resetsolved, resetmove and
+resetsolved
+resetmove
+n_solved true
+total_move true
+maxNodes -1
+randomize_exp_State 2
+solve_A_star h1
+randomize_exp_State 2
+solve_A_star h1
+total_move true
+n_solved true
+
+
+// show h2 is different than h1
+maxNodes 30
+randomizeState 20
+solve_A_star h1
+randomizeState 20
+solve_A_star h2
+
+
+//show k affects nodes generated
+maxNodes -1
+randomizeState 20
+solve_beam 1
+randomizeState 20
+solve_beam 100
+
+
+
